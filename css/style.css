@@ -1,0 +1,316 @@
+/* Reset */
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+ul,
+figure,
+a,
+hr,
+blockquote {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+}
+
+button {
+  border: none;
+  outline: none;
+  background: none;
+}
+
+/* Variables */
+
+:root {
+  --primary-ff: "Josefin Sans", sans-serif;
+  --fs: 18px;
+  --bright-blue-clr: hsl(220, 98%, 61%);
+  --check-bg-clr1: hsl(192, 100%, 67%);
+  --check-bg-clr2: hsl(280, 87%, 65%);
+}
+
+/* Color Scheme */
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --list-bg-clr: hsl(0, 0%, 98%);
+    --body-bg-clr: hsl(236, 33%, 92%);
+    --list-text-clr: hsl(235, 19%, 35%);
+    --input-circle-clr: hsl(233, 11%, 84%);
+    --filter-buttons-clr: hsl(236, 9%, 61%);
+    --background-image-desktop: url(../img/bg-desktop-light.jpg) no-repeat top
+      left/100%;
+    --background-image-mobile: url(../img/bg-mobile-light.jpg) no-repeat top
+      left/100%;
+    --theme-btn-icon: url(../img/icon-moon.svg) no-repeat;
+  }
+
+  :root.switch-theme {
+    --body-bg-clr: hsl(235, 21%, 11%);
+    --list-bg-clr: hsl(235, 24%, 19%);
+    --list-text-clr: hsl(234, 39%, 85%);
+    --list-text-hover-clr: hsl(236, 33%, 92%);
+    --filter-buttons-clr: hsl(234, 11%, 52%);
+    --input-circle-clr: hsl(233, 14%, 35%);
+    --drag-drop-text: hsl(237, 14%, 26%);
+    --background-image-desktop: url(../img/bg-desktop-dark.jpg) no-repeat top
+      left/100%;
+    --background-image-mobile: url(../img/bg-mobile-dark.jpg) no-repeat top
+      left/100%;
+    --theme-btn-icon: url(../img/icon-sun.svg) no-repeat;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --body-bg-clr: hsl(235, 21%, 11%);
+    --list-bg-clr: hsl(235, 24%, 19%);
+    --list-text-clr: hsl(234, 39%, 85%);
+    --list-text-hover-clr: hsl(236, 33%, 92%);
+    --filter-buttons-clr: hsl(234, 11%, 52%);
+    --input-circle-clr: hsl(233, 14%, 35%);
+    --drag-drop-text: hsl(237, 14%, 26%);
+    --background-image-desktop: url(../img/bg-desktop-dark.jpg) no-repeat top
+      left/100%;
+    --background-image-mobile: url(../img/bg-mobile-dark.jpg) no-repeat top
+      left/100%;
+    --theme-btn-icon: url(../img/icon-sun.svg) no-repeat;
+  }
+
+  :root.switch-theme {
+    --list-bg-clr: hsl(0, 0%, 98%);
+    --body-bg-clr: hsl(236, 33%, 92%);
+    --list-text-clr: hsl(235, 19%, 35%);
+    --input-circle-clr: hsl(233, 11%, 84%);
+    --filter-buttons-clr: hsl(236, 9%, 61%);
+    --background-image-desktop: url(../img/bg-desktop-light.jpg) no-repeat top
+      left/100%;
+    --background-image-mobile: url(../img/bg-mobile-light.jpg) no-repeat top
+      left/100%;
+    --theme-btn-icon: url(../img/icon-moon.svg) no-repeat;
+  }
+}
+
+/* Body */
+
+body {
+  font-family: var(--primary-ff);
+  font-size: var(--fs);
+  background: var(--body-bg-clr) var(--background-image-desktop);
+}
+
+/* Main */
+
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding-block: 3rem;
+}
+
+.container {
+  max-width: 700px;
+}
+
+.logo-text {
+  text-transform: uppercase;
+  letter-spacing: 10px;
+  color: white;
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.theme-btn {
+  background: var(--theme-btn-icon);
+  padding: 1rem;
+}
+
+.create-todo-item {
+  background-color: var(--list-bg-clr);
+  padding: 1rem 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-block-end: 1.5rem;
+  border-radius: 0.5rem;
+}
+
+.todo-item {
+  background-color: var(--list-bg-clr);
+  padding: 1rem 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--input-circle-clr);
+}
+
+.todo-item:nth-child(2) {
+  border-radius: 0.5rem 0.5rem 0 0;
+}
+
+input[type="text"] {
+  background-color: transparent;
+  width: 100%;
+  border: none;
+  outline: none;
+  color: var(--list-text-clr);
+}
+
+input[type="text"]::placeholder {
+  color: var(--filter-buttons-clr);
+}
+
+input[type="checkbox"] {
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  margin-inline-end: 1rem;
+  border: 1px solid var(--input-circle-clr);
+  cursor: pointer;
+  position: relative;
+}
+
+input[type="checkbox"]::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(var(--check-bg-clr1), var(--check-bg-clr2));
+  border-radius: 50%;
+  opacity: 0;
+  transition: 200ms ease-in-out;
+}
+
+input[type="checkbox"]::after {
+  content: "";
+  position: absolute;
+  inset: 1px;
+  background-color: var(--list-bg-clr);
+  border-radius: 50%;
+  opacity: 0;
+  transition-delay: 200ms;
+}
+
+input[type="checkbox"]:checked {
+  background: url(../img/icon-check.svg) center no-repeat,
+    linear-gradient(var(--check-bg-clr1), var(--check-bg-clr2));
+}
+
+input[type="checkbox"]:checked + .todo-text {
+  color: var(--filter-buttons-clr);
+  text-decoration: line-through;
+}
+
+.todo-text {
+  color: var(--list-text-clr);
+  transition: 200ms ease-in-out;
+}
+
+.close-icon {
+  cursor: pointer;
+  display: none;
+}
+
+.todo-info {
+  background-color: var(--list-bg-clr);
+  padding: 1rem 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 0 0 0.5rem 0.5rem;
+}
+
+.remaining-items,
+.clear-btn,
+.sort-btn,
+.text {
+  color: var(--filter-buttons-clr);
+}
+
+.sort-btn {
+  font-weight: 700;
+  transition: 200ms ease-in-out;
+}
+
+.sort-btn:not(:last-child) {
+  margin-inline-end: 0.5rem;
+}
+
+.clear-btn {
+  transition: 200ms ease-in-out;
+}
+
+.active {
+  color: var(--bright-blue-clr);
+}
+
+.todo-sort-mobile {
+  border-radius: 0.5rem;
+  padding: 1rem 0rem;
+  background-color: var(--list-bg-clr);
+}
+
+/* Hover States */
+
+@media (hover: hover) {
+  .logo-text:hover {
+    color: white;
+  }
+
+  input[type="checkbox"]:hover::before,
+  input[type="checkbox"]:hover::after {
+    opacity: 1;
+  }
+
+  input[type="checkbox"]:hover::after {
+    transition-delay: 0ms;
+  }
+
+  input[type="checkbox"]:checked::before,
+  input[type="checkbox"]:checked::after {
+    opacity: 0;
+  }
+
+  .todo-text:hover,
+  .sort-btn:hover,
+  .clear-btn:hover {
+    color: var(--list-text-hover-clr);
+  }
+
+  .todo-item:hover .close-icon {
+    display: inline-block;
+  }
+}
+
+/* Media Queries */
+
+@media all and (max-width: 768px) {
+  body {
+    background: var(--body-bg-clr) var(--background-image-mobile);
+  }
+
+  .close-icon {
+    display: inline-block;
+  }
+
+  .todo-info {
+    margin-block-end: 1.5rem;
+  }
+}

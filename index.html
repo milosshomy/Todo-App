@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="img/favicon-32x32.png" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <title>Todo App</title>
+  </head>
+  <body>
+    <main>
+      <div class="container">
+        <div class="row align-items-center mb-4">
+          <div class="col">
+            <a href="#" class="logo-text">Todo </a>
+          </div>
+          <div class="col d-flex justify-content-end">
+            <button
+              type="button"
+              class="theme-btn"
+              aria-label="Theme button"
+            ></button>
+          </div>
+        </div>
+
+        <ul class="todo-list">
+          <li class="create-todo-item">
+            <input type="checkbox" class="create-checkbox" />
+            <input type="text" placeholder="Create a new todo..." /
+            id="text-input">
+          </li>
+          <li class="todo-item" draggable="true">
+            <div class="d-flex align-items-center">
+              <input type="checkbox" />
+              <span class="todo-text">Complete online JavaScript course</span>
+            </div>
+            <div>
+              <img
+                src="img/icon-cross.svg"
+                class="close-icon"
+                alt="Close icon"
+              />
+            </div>
+          </li>
+          <li class="todo-item" draggable="true">
+            <div class="d-flex align-items-center">
+              <input type="checkbox" />
+              <span class="todo-text">Jog around the park 3x</span>
+            </div>
+            <div>
+              <img
+                src="img/icon-cross.svg"
+                class="close-icon"
+                alt="Close icon"
+              />
+            </div>
+          </li>
+          <li class="todo-item" draggable="true">
+            <div class="d-flex align-items-center">
+              <input type="checkbox" />
+              <span class="todo-text">10 minutes meditation</span>
+            </div>
+            <div>
+              <img
+                src="img/icon-cross.svg"
+                class="close-icon"
+                alt="Close icon"
+              />
+            </div>
+          </li>
+          <li class="todo-item" draggable="true">
+            <div class="d-flex align-items-center">
+              <input type="checkbox" />
+              <span class="todo-text">Read for 1 hour</span>
+            </div>
+            <div>
+              <img
+                src="img/icon-cross.svg"
+                class="close-icon"
+                alt="Close icon"
+              />
+            </div>
+          </li>
+          <li class="todo-item" draggable="true">
+            <div class="d-flex align-items-center">
+              <input type="checkbox" />
+              <span class="todo-text">Pick up groceries</span>
+            </div>
+            <div>
+              <img
+                src="img/icon-cross.svg"
+                class="close-icon"
+                alt="Close icon"
+              />
+            </div>
+          </li>
+          <li class="todo-item" draggable="true">
+            <div class="d-flex align-items-center">
+              <input type="checkbox" />
+              <span class="todo-text"
+                >Complete Todo App on Frontend Mentor</span
+              >
+            </div>
+            <div>
+              <img
+                src="img/icon-cross.svg"
+                class="close-icon"
+                alt="Close icon"
+              />
+            </div>
+          </li>
+        </ul>
+        <div class="todo-info mb-md-5">
+          <div>
+            <span class="remaining-items"></span>
+          </div>
+          <div class="d-none d-md-block">
+            <button type="button" class="sort-btn active">All</button>
+            <button type="button" class="sort-btn">Active</button>
+            <button type="button" class="sort-btn">Completed</button>
+          </div>
+          <div>
+            <button type="button" class="clear-btn">Clear Completed</button>
+          </div>
+        </div>
+
+        <div
+          class="todo-sort-mobile d-flex justify-content-center align-items-center d-md-none mb-5 mb-md-0"
+        >
+          <div>
+            <button type="button" class="sort-btn active">All</button>
+            <button type="button" class="sort-btn">Active</button>
+            <button type="button" class="sort-btn">Completed</button>
+          </div>
+        </div>
+
+        <div class="text-center">
+          <span class="text">Drag and drop to reorder list</span>
+        </div>
+      </div>
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/@shopify/draggable@1.0.0-beta.11/lib/draggable.bundle.js"></script>
+    <script src="js/script.js"></script>
+  </body>
+</html>
